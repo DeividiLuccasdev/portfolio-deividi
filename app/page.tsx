@@ -758,7 +758,7 @@ export default function Home() {
           />
 
             <Experiencia
-                periodo="Dez/2023 — Ago/2024"
+                periodo="2023 — 2024"
                 empresa="Arablock"
                 cargo="Desenvolvedor Full Stack — Projeto Doc+"
                 texto="Atuação no desenvolvimento e manutenção de funcionalidades, integração entre frontend e backend e desenvolvimento e consumo de APIs REST."
