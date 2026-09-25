@@ -752,7 +752,7 @@ export default function Home() {
           <Experiencia
             periodo="2024 — 2026"
             empresa="Teccon"
-            cargo="Desenvolvedor Full Stack Júnior"
+            cargo="Desenvolvedor Full Stack"
             texto="Atuação no desenvolvimento e evolução de aplicações web Full Stack, criação de interfaces, APIs REST, regras de negócio e dashboards, além de integração entre frontend, backend e bancos de dados. Experiência com autenticação JWT, microsserviços, API Gateway, testes de APIs, troubleshooting, tratamento de falhas e deploy/monitoramento em nuvem."
             tecnologias="React • TypeScript • JavaScript • Node.js • Express • Python • FastAPI • Flask • PostgreSQL • MySQL • Prisma • SQLAlchemy • JWT • Docker • Git • GitHub • GitHub Actions • CI/CD • Render • Neon"
           />
