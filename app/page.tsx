@@ -28,10 +28,13 @@ const tecnologias = [
   "PostgreSQL",
   "Prisma",
   "REST APIs",
-  "Gemini AI",
+  "LLMs / IA",
   "Git",
   "Docker",
 ];
+
+const AVISO_RENDER =
+  "As demos usam o plano gratuito do Render: o primeiro acesso pode levar de 30 a 60 segundos.";
 
 const screenshots = [
   {
@@ -90,6 +93,7 @@ const gruposTecnologias = [
     titulo: "Ferramentas & IA",
     icone: BrainCircuit,
     tecnologias: [
+      "LLMs (Groq)",
       "Google Gemini",
       "Git",
       "GitHub",
@@ -117,7 +121,7 @@ const destaques = [
   },
   {
     titulo: "IA",
-    subtitulo: "Gemini",
+    subtitulo: "LLMs",
     descricao:
       "Integração com Inteligência Artificial para automação, análise e ganho de produtividade.",
     icone: BrainCircuit,
@@ -500,7 +504,7 @@ export default function Home() {
               <div className="mt-5 grid grid-cols-3 gap-3">
                 <MiniCard titulo="React" subtitulo="Frontend" />
                 <MiniCard titulo="Node.js" subtitulo="Backend" />
-                <MiniCard titulo="Gemini" subtitulo="IA" />
+                <MiniCard titulo="LLMs" subtitulo="IA" />
               </div>
             </div>
           </div>
@@ -588,7 +592,7 @@ export default function Home() {
             subtitulo="Projetos onde apliquei desenvolvimento Full Stack, arquitetura e integração com IA."
           />
 
-          {/* GASTO NA FOTO */}
+          {/* CONTROLE DE GASTOS COM IA */}
           <div className="mt-14 overflow-hidden rounded-[32px] border border-cyan-400/20 bg-gradient-to-br from-cyan-500/[0.06] via-white/[0.025] to-purple-500/[0.06]">
             <div className="grid lg:grid-cols-2">
               <div className="p-8 sm:p-10 lg:p-12">
@@ -603,7 +607,7 @@ export default function Home() {
                 </div>
 
                 <h3 className="mt-6 text-3xl font-black sm:text-4xl">
-                  💰 Controle de Gasto
+                  💰 Controle de Gastos com IA
                 </h3>
 
                 <p className="mt-5 max-w-xl leading-7 text-slate-400">
@@ -618,7 +622,7 @@ export default function Home() {
                     "Autenticação com JWT",
                     "Upload pela câmera",
                     "Processamento com Sharp",
-                    "Google Gemini API",
+                    "IA de visão (Qwen via Groq)",
                     "PostgreSQL + Prisma",
                     "Interface mobile-first",
                   ].map((item) => (
@@ -644,7 +648,7 @@ export default function Home() {
                     "Express",
                     "Prisma",
                     "PostgreSQL",
-                    "Gemini AI",
+                    "Groq",
                     "Docker",
                   ].map((stack) => (
                     <span
@@ -656,16 +660,28 @@ export default function Home() {
                   ))}
                 </div>
 
-                <a
-                  href="https://github.com/DeividiLuccasdev/Gasto-na-foto"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-9 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.05] px-5 py-3 font-semibold transition hover:border-cyan-400/40 hover:bg-cyan-400/10"
-                >
-                  <Code2 size={18} />
-                  Ver código no GitHub
-                  <ArrowUpRight size={17} />
-                </a>
+                <div className="mt-9 flex flex-wrap gap-3">
+                  <a
+                    href="https://controle-gastos-ia.onrender.com"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl bg-cyan-500 px-5 py-3 font-semibold text-slate-950 transition hover:bg-cyan-400"
+                  >
+                    Ver online
+                    <ArrowUpRight size={17} />
+                  </a>
+
+                  <a
+                    href="https://github.com/DeividiLuccasdev/Controle-de-Gastos-com-IA"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.05] px-5 py-3 font-semibold transition hover:border-cyan-400/40 hover:bg-cyan-400/10"
+                  >
+                    <Code2 size={18} />
+                    Ver código no GitHub
+                    <ArrowUpRight size={17} />
+                  </a>
+                </div>
               </div>
 
               {/* GALERIA */}
@@ -705,23 +721,25 @@ export default function Home() {
             <Projeto
               icone={Layers3}
               titulo="SmartFlow AI"
-              descricao="Sistema baseado em arquitetura de microsserviços, com integração entre CRM, ERP e Financeiro, utilizando APIs REST e comunicação entre serviços."
+              descricao="Plataforma em microsserviços (Auth, CRM, ERP, Financeiro e IA) atrás de um API Gateway. Uma oportunidade ganha no CRM gera o pedido no ERP e a conta a receber no Financeiro, e um assistente de IA responde com base nos dados da empresa."
               tecnologias={[
                 "Node.js",
                 "Express",
                 "TypeScript",
                 "Prisma",
                 "PostgreSQL",
-                "REST APIs",
+                "API Gateway",
+                "Groq",
               ]}
               link="https://github.com/DeividiLuccasdev/smartflow-ai"
-               imagem="/projects/smartflow-ai/smartflow.png"
+              demo="https://smartflow-ai-frontend.onrender.com"
+              imagem="/projects/smartflow-ai/smartflow.png"
             />
 
             <Projeto
               icone={Database}
               titulo="Sistema de Clientes"
-              descricao="Aplicação CRUD para gerenciamento de clientes, com pesquisa, cadastro, edição, exclusão, histórico e dashboard de indicadores."
+              descricao="Aplicação CRUD para gerenciamento de clientes, com pesquisa, histórico de exclusões e dashboard. Proteção CSRF, limite de tentativas de login, redefinição de senha e testes automatizados."
               tecnologias={[
                 "Python",
                 "Flask",
@@ -729,10 +747,50 @@ export default function Home() {
                 "HTML",
                 "CSS",
                 "JavaScript",
-                ]}
-                imagem="/projects/sistema-clientes/sistema-clientes.png"
+                "Pytest",
+              ]}
+              link="https://github.com/DeividiLuccasdev/sistema-clientes-flask"
+              demo="https://sistema-clientes-flask-ev90.onrender.com"
+              imagem="/projects/sistema-clientes/sistema-clientes.png"
+            />
+
+            <Projeto
+              icone={BriefcaseBusiness}
+              titulo="ERP Full-Stack"
+              descricao="Gestão comercial com clientes, produtos, estoque, pedidos e vendas. Perfis ADMIN e operador, histórico de todas as movimentações de estoque e baixa protegida contra vendas simultâneas."
+              tecnologias={[
+                "React",
+                "TypeScript",
+                "Node.js",
+                "Express",
+                "Prisma",
+                "PostgreSQL",
+                "Docker",
+              ]}
+              link="https://github.com/DeividiLuccasdev/erp-fullstack"
+              demo="https://erp-fullstack-frontend.onrender.com"
+            />
+
+            <Projeto
+              icone={Server}
+              titulo="Central de Chamados"
+              descricao="API REST e interface web para abertura e acompanhamento de chamados, com dashboard, filtros de busca, autenticação JWT e 48 testes automatizados rodando no GitHub Actions."
+              tecnologias={[
+                "Python",
+                "FastAPI",
+                "SQLAlchemy",
+                "PostgreSQL",
+                "JWT",
+                "Pytest",
+              ]}
+              link="https://github.com/DeividiLuccasdev/central-chamados-fastapi"
+              demo="https://central-chamados-fastapi.onrender.com/login-web"
             />
           </div>
+
+          <p className="mt-6 text-center text-xs text-slate-500">
+            {AVISO_RENDER}
+          </p>
         </div>
       </section>
 
@@ -778,7 +836,7 @@ export default function Home() {
               empresa="Projetos próprios"
               cargo="Desenvolvimento Full Stack e IA"
               texto="Desenvolvimento contínuo de projetos para aprofundamento técnico, arquitetura de aplicações, APIs, banco de dados e integração com Inteligência Artificial."
-              tecnologias="Next.js • Node.js • Python • PostgreSQL • Prisma • Docker • Gemini AI"
+              tecnologias="Next.js • Node.js • Python • FastAPI • PostgreSQL • Prisma • Docker • LLMs (Groq)"
             />
           </div>
         </div>
@@ -942,6 +1000,7 @@ function Projeto({
   descricao,
   tecnologias,
   link,
+  demo,
   imagem,
 }: {
   icone: typeof Code2;
@@ -949,6 +1008,7 @@ function Projeto({
   descricao: string;
   tecnologias: string[];
   link?: string;
+  demo?: string;
   imagem?: string;
 }) {
   return (
@@ -1006,16 +1066,32 @@ function Projeto({
           ))}
         </div>
 
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noreferrer"
-            className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 transition group-hover:gap-3"
-          >
-            Ver projeto
-            <ArrowUpRight size={16} />
-          </a>
+        {(demo || link) && (
+          <div className="mt-7 flex flex-wrap gap-5">
+            {demo && (
+              <a
+                href={demo}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 transition hover:gap-3"
+              >
+                Ver online
+                <ArrowUpRight size={16} />
+              </a>
+            )}
+
+            {link && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition hover:gap-3 hover:text-white"
+              >
+                <Code2 size={16} />
+                Código
+              </a>
+            )}
+          </div>
         )}
       </div>
     </article>
