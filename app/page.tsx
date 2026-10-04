@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import TechBadge from "./TechBadge";
 import { useEffect, useState } from "react";
 import {
   ArrowUp,
@@ -24,6 +25,8 @@ const tecnologias = [
   "TypeScript",
   "Node.js",
   "Python",
+  "C#",
+  ".NET",
   "Go",
   "PostgreSQL",
   "Prisma",
@@ -73,6 +76,8 @@ const gruposTecnologias = [
       "Express",
       "Python",
       "Flask",
+      "C#",
+      ".NET",
       "Go",
       "APIs REST",
       "JWT",
@@ -359,12 +364,7 @@ export default function Home() {
 
             <div className="mt-8 flex flex-wrap gap-2">
               {tecnologias.map((tecnologia) => (
-                <span
-                  key={tecnologia}
-                  className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-sm text-slate-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-300"
-                >
-                  {tecnologia}
-                </span>
+                <TechBadge key={tecnologia} nome={tecnologia} className="rounded-full border border-white/10 bg-white/[0.035] px-4 py-2 text-sm text-slate-300 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-cyan-400/10 hover:text-cyan-300" />
               ))}
             </div>
 
@@ -568,12 +568,7 @@ export default function Home() {
 
                   <div className="mt-5 flex flex-wrap gap-2">
                     {grupo.tecnologias.map((tecnologia) => (
-                      <span
-                        key={tecnologia}
-                        className="rounded-lg border border-white/[0.07] bg-slate-950/60 px-3 py-1.5 text-xs text-slate-400"
-                      >
-                        {tecnologia}
-                      </span>
+                      <TechBadge key={tecnologia} nome={tecnologia} className="rounded-lg border border-white/[0.07] bg-slate-950/60 px-3 py-1.5 text-xs text-slate-400" />
                     ))}
                   </div>
                 </div>
@@ -651,12 +646,7 @@ export default function Home() {
                     "Groq",
                     "Docker",
                   ].map((stack) => (
-                    <span
-                      key={stack}
-                      className="rounded-full bg-white/[0.05] px-3 py-1.5 text-xs text-slate-300"
-                    >
-                      {stack}
-                    </span>
+                    <TechBadge key={stack} nome={stack} className="rounded-full bg-white/[0.05] px-3 py-1.5 text-xs text-slate-300" />
                   ))}
                 </div>
 
@@ -1057,12 +1047,7 @@ function Projeto({
 
         <div className="mt-6 flex flex-wrap gap-2">
           {tecnologias.map((tecnologia) => (
-            <span
-              key={tecnologia}
-              className="rounded-full border border-white/[0.07] bg-slate-950/60 px-3 py-1.5 text-xs text-slate-400"
-            >
-              {tecnologia}
-            </span>
+            <TechBadge key={tecnologia} nome={tecnologia} className="rounded-full border border-white/[0.07] bg-slate-950/60 px-3 py-1.5 text-xs text-slate-400" />
           ))}
         </div>
 
