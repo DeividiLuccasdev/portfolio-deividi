@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Deividi Tiago Luccas
 
-## Getting Started
+Site pessoal com meus projetos, experiência e contato.
 
-First, run the development server:
+🌐 **Online:** https://portfolio-deividi.vercel.app
+
+## Projetos apresentados
+
+| Projeto | Demo | Código |
+|---|---|---|
+| Controle de Gastos com IA | [Acessar](https://controle-gastos-ia.onrender.com) | [GitHub](https://github.com/DeividiLuccasdev/Controle-de-Gastos-com-IA) |
+| SmartFlow AI | [Acessar](https://smartflow-ai-frontend.onrender.com) | [GitHub](https://github.com/DeividiLuccasdev/smartflow-ai) |
+| ERP Full-Stack | [Acessar](https://erp-fullstack-frontend.onrender.com) | [GitHub](https://github.com/DeividiLuccasdev/erp-fullstack) |
+| Central de Chamados | [Acessar](https://central-chamados-fastapi.onrender.com/login-web) | [GitHub](https://github.com/DeividiLuccasdev/central-chamados-fastapi) |
+| Sistema de Clientes | [Acessar](https://sistema-clientes-flask-ev90.onrender.com) | [GitHub](https://github.com/DeividiLuccasdev/sistema-clientes-flask) |
+
+> ⏳ As demos usam o plano gratuito do Render: o primeiro acesso pode levar de 30 a 60 segundos enquanto o servidor acorda.
+
+## Tecnologias
+
+- Next.js (App Router) e React
+- TypeScript
+- Tailwind CSS
+- lucide-react (ícones)
+- Deploy na Vercel
+
+## Rodando localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+app/
+├── layout.tsx     # layout e metadados
+├── page.tsx       # página única (seções e projetos)
+└── globals.css
+public/
+├── projects/      # prints dos projetos
+├── curriculo-deividi.pdf
+└── perfil.jpg
+```
