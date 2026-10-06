@@ -319,43 +319,40 @@ export default function Home() {
           id="inicio"
           className="relative mx-auto flex min-h-screen max-w-7xl items-center px-6 pb-10 pt-28"
         >
-        <div className="grid w-full items-center gap-16 lg:grid-cols-[1.1fr_.9fr]">
+        <div className="grid w-full items-center gap-10 xl:grid-cols-[minmax(0,1.8fr)_minmax(0,0.7fr)]">
           <div>
    <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-emerald-400/25 bg-emerald-400/[0.08] px-6 py-3 text-base font-semibold text-emerald-300 shadow-lg shadow-emerald-500/10">
   <span className="h-3 w-3 animate-pulse rounded-full bg-emerald-400" />
   Aberto a oportunidades em desenvolvimento
 </div>
 
-         <div className="mt-10 flex flex-col items-start gap-7 sm:flex-row sm:items-center">
-  <div className="relative h-44 w-44 shrink-0 overflow-hidden rounded-full border-4 border-cyan-400 shadow-xl shadow-cyan-500/20 sm:h-52 sm:w-52">
-    <Image
-      src="/perfil.jpg"
-      alt="Deividi Tiago Luccas"
-      fill
-      priority
-      sizes="208px"
-      className="object-cover"
-    />
-  </div>
+            <div className="mt-10 flex flex-col items-start gap-7 sm:flex-row sm:items-center">
+              <div className="relative h-44 w-44 shrink-0 overflow-hidden rounded-full border-4 border-cyan-400 shadow-xl shadow-cyan-500/20 sm:h-52 sm:w-52">
+                <Image
+                  src="/perfil.jpg"
+                  alt="Deividi Tiago Luccas"
+                  fill
+                  priority
+                  sizes="208px"
+                  className="object-cover"
+                />
+              </div>
 
-  <div>
-    <p className="font-mono text-xl font-bold tracking-[0.18em] text-cyan-400 sm:text-2xl">
-      OLÁ, EU SOU
-    </p>
+              <div className="min-w-0 text-left">
+                <p className="font-mono text-base font-bold tracking-[0.18em] text-cyan-400 sm:text-xl">
+                  OLÁ, EU SOU
+                </p>
 
-    <h2 className="mt-3 text-5xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl">
-      Deividi Tiago Luccas
-    </h2>
-  </div>
-</div>
+                <h1 className="mt-3 text-4xl font-black leading-tight tracking-tight text-white sm:whitespace-nowrap sm:text-[clamp(1.75rem,3.5vw,3rem)]">
+                  Deividi Tiago Luccas
+                </h1>
 
-            <h1 className="max-w-4xl text-5xl font-black leading-[1.03] tracking-tight sm:text-6xl lg:text-7xl">
-              Desenvolvedor
-              <span className="block bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Full Stack
-              </span>
-            </h1>
-
+                <p className="mt-3 text-3xl font-black leading-tight tracking-tight sm:whitespace-nowrap sm:text-[clamp(1.5rem,2.8vw,2.25rem)]">
+                  Desenvolvedor{" "}
+                  <span className="text-cyan-400">Full Stack</span>
+                </p>
+              </div>
+            </div>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-400">
               Desenvolvimento de aplicações web, APIs, sistemas integrados e
               soluções com Inteligência Artificial, transformando regras de
@@ -426,7 +423,7 @@ export default function Home() {
 </div>
 
           {/* CARD CODE */}
-          <div className="relative hidden lg:block">
+          <div className="relative hidden xl:block">
             <div className="absolute inset-0 rounded-[40px] bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-3xl" />
 
             <div className="floating-card relative rounded-[30px] border border-white/10 bg-white/[0.035] p-7 shadow-2xl backdrop-blur-2xl">
