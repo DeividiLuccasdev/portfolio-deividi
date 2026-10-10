@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import TechBadge from "./TechBadge";
+import SobreMim from "./SobreMim";
 import { useEffect, useState } from "react";
 import {
   ArrowUp,
@@ -474,7 +475,7 @@ export default function Home() {
                   <p>
                     <span className="text-blue-300">backend</span>:{" "}
                     <span className="text-emerald-300">
-                      &quot;Node | Python | Go&quot;
+                      &quot;Node | .NET | Python | Go&quot;
                     </span>
                     ,
                   </p>
@@ -514,23 +515,9 @@ export default function Home() {
   className="relative border-t border-white/[0.06]"
 >
   <div className="mx-auto max-w-7xl px-6 py-16">
-       <div className="mt-12 flex justify-center">
-      <div className="relative w-full max-w-5xl">
-        <div className="absolute inset-0 rounded-[32px] bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-purple-500/20 blur-3xl" />
-
-        <div className="group relative overflow-hidden rounded-[30px] border border-cyan-400/20 bg-slate-900/50 p-2 shadow-2xl shadow-cyan-500/10">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[24px] bg-slate-950">
-            <Image
-              src="/about/sobre-mim.jpg"
-              alt="Apresentação profissional de Deividi Tiago Luccas"
-              fill
-              sizes="(max-width: 768px) 100vw, 1000px"
-              className="object-contain transition duration-700 group-hover:scale-[1.01]"
-            />
-          </div>
-        </div>
+      <div className="mx-auto mt-12 max-w-5xl">
+        <SobreMim />
       </div>
-    </div>
   </div>
 </section>
 
