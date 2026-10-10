@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import {
+  Boxes,
   BrainCircuit,
   Database,
   Network,
@@ -32,6 +33,7 @@ import {
   SiSqlalchemy,
   SiTailwindcss,
   SiTypescript,
+  SiVite,
 } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
 import { VscVscode } from "react-icons/vsc";
@@ -79,6 +81,8 @@ const ICONES: Record<string, { icone: Icone; cor: string }> = {
   "LLMs (Groq)": { icone: BrainCircuit, cor: "#C084FC" },
   Groq: { icone: BrainCircuit, cor: "#F55036" },
   Autenticação: { icone: ShieldCheck, cor: "#22D3EE" },
+  Vite: { icone: SiVite, cor: "#9135FF" },
+  Microsserviços: { icone: Boxes, cor: "#38BDF8" },
 };
 
 export default function TechBadge({
