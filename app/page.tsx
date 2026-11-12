@@ -701,6 +701,10 @@ export default function Home() {
               tecnologias={["Python", "FastAPI", "PostgreSQL", "Celery", "Redis", "Playwright", "Docker", "GitHub Actions"]}
               demo="https://autoflow-rpa-api.onrender.com/"
               link="https://github.com/DeividiLuccasdev/autoflow-rpa"
+              galeria={[
+                { src: "/projects/autoflow-rpa/painel.jpg", nome: "Painel de operações" },
+                { src: "/projects/autoflow-rpa/automacao.jpg", nome: "Automação em ação" },
+              ]}
             />
           </div>
 
@@ -997,6 +1001,7 @@ function Projeto({
   link,
   demo,
   imagem,
+  galeria,
 }: {
   icone: typeof Code2;
   titulo: string;
@@ -1005,11 +1010,14 @@ function Projeto({
   link?: string;
   demo?: string;
   imagem?: string;
+  galeria?: { src: string; nome: string }[];
 }) {
+  const [imagemAtiva, setImagemAtiva] = useState(0);
+  const imagemAtual = galeria?.[imagemAtiva]?.src ?? imagem;
   return (
     <article className="group overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.025] transition duration-300 hover:-translate-y-2 hover:border-cyan-400/25">
       
-      {imagem && (
+      {imagemAtual && (
   <div className="border-b border-white/[0.08] bg-slate-950/70 p-5">
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl">
 
@@ -1025,8 +1033,8 @@ function Projeto({
 
       <div className="relative aspect-[16/9] w-full bg-slate-950">
         <Image
-          src={imagem}
-          alt={`Projeto ${titulo}`}
+          src={imagemAtual}
+          alt={`Projeto ${titulo}${galeria ? ` — ${galeria[imagemAtiva].nome}` : ""}`}
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-contain p-2 transition duration-500 group-hover:scale-[1.02]"
@@ -1034,6 +1042,21 @@ function Projeto({
       </div>
 
     </div>
+    {galeria && (
+      <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label={`Telas do projeto ${titulo}`}>
+        {galeria.map((tela, index) => (
+          <button
+            key={tela.src}
+            type="button"
+            aria-pressed={imagemAtiva === index}
+            onClick={() => setImagemAtiva(index)}
+            className={`rounded-lg border px-4 py-2 text-xs font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 ${imagemAtiva === index ? "border-cyan-400/40 bg-cyan-400/10 text-cyan-300" : "border-white/10 bg-white/[0.03] text-slate-400 hover:border-cyan-400/30 hover:text-cyan-300"}`}
+          >
+            {tela.nome}
+          </button>
+        ))}
+      </div>
+    )}
   </div>
 )}
 
