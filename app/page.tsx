@@ -355,9 +355,11 @@ export default function Home() {
               </div>
             </div>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-400">
-              Desenvolvimento de aplicações web, APIs, sistemas integrados e
-              soluções com Inteligência Artificial, transformando regras de
-              negócio em produtos funcionais e bem estruturados.
+              Desenvolvimento de aplicações web, APIs REST, sistemas integrados e
+              soluções com Inteligência Artificial. Atuo e tenho experiência com
+              RPA, automação de processos e integrações entre sistemas, conduzindo
+              soluções de ponta a ponta e transformando regras de negócio em
+              produtos funcionais e bem estruturados.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-2">
@@ -690,6 +692,18 @@ export default function Home() {
             </div>
           </div>
 
+          {/* AUTOFLOW RPA */}
+          <div className="mt-10">
+            <Projeto
+              icone={Layers3}
+              titulo="AutoFlow RPA"
+              descricao="Plataforma demonstrativa de automação financeira com processamento de documentos, validação, auditoria, prevenção de duplicidade e execução assíncrona com Celery e Redis. Inclui robô Playwright com navegador real em ambiente local e CI. Utiliza documentos e empresas fictícios; a demonstração pública usa adaptadores simulados."
+              tecnologias={["Python", "FastAPI", "PostgreSQL", "Celery", "Redis", "Playwright", "Docker", "GitHub Actions"]}
+              demo="https://autoflow-rpa-api.onrender.com/"
+              link="https://github.com/DeividiLuccasdev/autoflow-rpa"
+            />
+          </div>
+
           {/* OUTROS PROJETOS */}
           <div className="mt-6 grid gap-6 lg:grid-cols-2">
             <Projeto
@@ -781,6 +795,13 @@ export default function Home() {
           />
 
           <div className="mt-14 grid gap-6">
+            <Experiencia
+              periodo="Em atividade"
+              empresa="EXO - EXPANDING HUMAN CAPABILITIES"
+              cargo="Desenvolvedor de Automações e Integrações | RPA, APIs REST e Inteligência Artificial (IA)"
+              texto="Desenvolvimento de soluções de automação e integração para uma rede de seguradoras, com atuação de ponta a ponta: levantamento de requisitos, mapeamento de processos, desenvolvimento, implantação e sustentação em produção. Automação de tarefas, integração entre sistemas por APIs REST e aplicação de Inteligência Artificial, com acompanhamento das execuções, resolução de falhas e melhoria contínua dos processos."
+              tecnologias="RPA • APIs REST • Integrações entre sistemas • Inteligência Artificial • Automação de processos"
+            />
           <Experiencia
             periodo="2024 — 2026"
             empresa="Teccon"
