@@ -697,15 +697,20 @@ export default function Home() {
             <Projeto
               icone={Layers3}
               titulo="AutoFlow RPA"
-              descricao="Plataforma demonstrativa de automação financeira com extração de PDFs, conciliação em lote com CSV, prevenção de duplicidades, revisão de divergências e auditoria. Inclui perfis de acesso, geração de nota e preenchimento automático de e-mail de cobrança com anexo e protocolo de envio simulado. O projeto tem 200 testes automatizados aprovados e robô Playwright em ambiente local e CI. Utiliza dados fictícios e adaptadores simulados."
+              descricao="Plataforma demonstrativa de automação financeira com extração de PDFs, conciliação em lote com CSV, prevenção de duplicidades, revisão de divergências e auditoria. Inclui perfis de acesso, geração de nota e preenchimento automático de e-mail de cobrança com anexo e protocolo de envio simulado. São mais de 200 testes automatizados com PostgreSQL, Redis e Celery reais, robô Playwright operando um ERP pelo navegador e CI com lint, cobertura e smoke test da imagem Docker. Utiliza dados fictícios e adaptadores simulados."
               tecnologias={["Python", "FastAPI", "PostgreSQL", "Celery", "Redis", "Playwright", "Docker", "GitHub Actions"]}
               demo="https://autoflow-rpa-api.onrender.com/"
               link="https://github.com/DeividiLuccasdev/autoflow-rpa"
               video="/projects/autoflow-rpa/apresentacao.mp4"
               legendas="/projects/autoflow-rpa/apresentacao.vtt"
+              duracaoVideo="48 s"
               galeria={[
-                { src: "/projects/autoflow-rpa/painel.jpg", nome: "Painel de operações" },
-                { src: "/projects/autoflow-rpa/automacao.jpg", nome: "Automação em ação" },
+                { src: "/projects/autoflow-rpa/painel.jpg", nome: "Painel" },
+                { src: "/projects/autoflow-rpa/automacao.jpg", nome: "Automação" },
+                { src: "/projects/autoflow-rpa/revisao-humana.jpg", nome: "Revisão humana" },
+                { src: "/projects/autoflow-rpa/conciliacao-lote.jpg", nome: "Conciliação em lote" },
+                { src: "/projects/autoflow-rpa/assistente-cobranca.jpg", nome: "Assistente" },
+                { src: "/projects/autoflow-rpa/robo-playwright.jpg", nome: "Robô Playwright" },
               ]}
             />
           </div>
@@ -1006,6 +1011,7 @@ function Projeto({
   galeria,
   video,
   legendas,
+  duracaoVideo,
 }: {
   icone: typeof Code2;
   titulo: string;
@@ -1017,6 +1023,7 @@ function Projeto({
   galeria?: { src: string; nome: string }[];
   video?: string;
   legendas?: string;
+  duracaoVideo?: string;
 }) {
   const [imagemAtiva, setImagemAtiva] = useState(0);
   const [videoAtivo, setVideoAtivo] = useState(false);
@@ -1076,10 +1083,10 @@ function Projeto({
             {tela.nome}
           </button>
         ))}
-        {video && <button type="button" aria-pressed={videoAtivo} onClick={() => setVideoAtivo(true)} className={`rounded-lg border px-4 py-2 text-xs font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 ${videoAtivo ? "border-cyan-400/40 bg-cyan-400/10 text-cyan-300" : "border-cyan-400/25 bg-cyan-400/5 text-cyan-300 hover:bg-cyan-400/10"}`}>Vídeo · 28 s</button>}
+        {video && <button type="button" aria-pressed={videoAtivo} onClick={() => setVideoAtivo(true)} className={`rounded-lg border px-4 py-2 text-xs font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 ${videoAtivo ? "border-cyan-400/40 bg-cyan-400/10 text-cyan-300" : "border-cyan-400/25 bg-cyan-400/5 text-cyan-300 hover:bg-cyan-400/10"}`}>{duracaoVideo ? `Vídeo · ${duracaoVideo}` : "Vídeo"}</button>}
       </div>
     )}
-    {videoAtivo && video && <p className="mt-3 text-xs leading-6 text-slate-400">Apresentação com capturas reais do projeto. Dados fictícios e envios simulados. <a href={video} download className="text-cyan-300 underline underline-offset-4">Baixar vídeo</a></p>}
+    {videoAtivo && video && <p className="mt-3 text-xs leading-6 text-slate-400">Apresentação com telas reais do projeto em execução. Dados fictícios e sistemas simulados. <a href={video} download className="text-cyan-300 underline underline-offset-4">Baixar vídeo</a></p>}
   </div>
 )}
 
