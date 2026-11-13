@@ -697,10 +697,12 @@ export default function Home() {
             <Projeto
               icone={Layers3}
               titulo="AutoFlow RPA"
-              descricao="Plataforma demonstrativa de automação financeira com processamento de documentos, validação, auditoria, prevenção de duplicidade e execução assíncrona com Celery e Redis. Inclui robô Playwright com navegador real em ambiente local e CI. Utiliza documentos e empresas fictícios; a demonstração pública usa adaptadores simulados."
+              descricao="Plataforma demonstrativa de automação financeira com extração de PDFs, conciliação em lote com CSV, prevenção de duplicidades, revisão de divergências e auditoria. Inclui perfis de acesso, geração de nota e preenchimento automático de e-mail de cobrança com anexo e protocolo de envio simulado. O projeto tem 200 testes automatizados aprovados e robô Playwright em ambiente local e CI. Utiliza dados fictícios e adaptadores simulados."
               tecnologias={["Python", "FastAPI", "PostgreSQL", "Celery", "Redis", "Playwright", "Docker", "GitHub Actions"]}
               demo="https://autoflow-rpa-api.onrender.com/"
               link="https://github.com/DeividiLuccasdev/autoflow-rpa"
+              video="/projects/autoflow-rpa/apresentacao.mp4"
+              legendas="/projects/autoflow-rpa/apresentacao.vtt"
               galeria={[
                 { src: "/projects/autoflow-rpa/painel.jpg", nome: "Painel de operações" },
                 { src: "/projects/autoflow-rpa/automacao.jpg", nome: "Automação em ação" },
@@ -1002,6 +1004,8 @@ function Projeto({
   demo,
   imagem,
   galeria,
+  video,
+  legendas,
 }: {
   icone: typeof Code2;
   titulo: string;
@@ -1011,13 +1015,16 @@ function Projeto({
   demo?: string;
   imagem?: string;
   galeria?: { src: string; nome: string }[];
+  video?: string;
+  legendas?: string;
 }) {
   const [imagemAtiva, setImagemAtiva] = useState(0);
+  const [videoAtivo, setVideoAtivo] = useState(false);
   const imagemAtual = galeria?.[imagemAtiva]?.src ?? imagem;
   return (
     <article className="group overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.025] transition duration-300 hover:-translate-y-2 hover:border-cyan-400/25">
       
-      {imagemAtual && (
+      {(imagemAtual || video) && (
   <div className="border-b border-white/[0.08] bg-slate-950/70 p-5">
     <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl">
 
@@ -1032,31 +1039,47 @@ function Projeto({
       </div>
 
       <div className="relative aspect-[16/9] w-full bg-slate-950">
-        <Image
+        {videoAtivo && video ? (
+          <video
+            className="h-full w-full object-contain"
+            aria-label={`Vídeo de apresentação do projeto ${titulo}`}
+            controls
+            playsInline
+            autoPlay
+            preload="none"
+            poster={galeria?.[0]?.src ?? imagem}
+          >
+            <source src={video} type="video/mp4" />
+            {legendas && <track src={legendas} kind="captions" srcLang="pt-BR" label="Português" />}
+            Seu navegador não suporta vídeo. <a href={video}>Baixe a apresentação.</a>
+          </video>
+        ) : imagemAtual ? <Image
           src={imagemAtual}
           alt={`Projeto ${titulo}${galeria ? ` — ${galeria[imagemAtiva].nome}` : ""}`}
           fill
           sizes="(max-width: 1024px) 100vw, 50vw"
           className="object-contain p-2 transition duration-500 group-hover:scale-[1.02]"
-        />
+        /> : null}
       </div>
 
     </div>
-    {galeria && (
+    {(galeria || video) && (
       <div className="mt-4 flex flex-wrap gap-2" role="group" aria-label={`Telas do projeto ${titulo}`}>
-        {galeria.map((tela, index) => (
+        {galeria?.map((tela, index) => (
           <button
             key={tela.src}
             type="button"
-            aria-pressed={imagemAtiva === index}
-            onClick={() => setImagemAtiva(index)}
-            className={`rounded-lg border px-4 py-2 text-xs font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 ${imagemAtiva === index ? "border-cyan-400/40 bg-cyan-400/10 text-cyan-300" : "border-white/10 bg-white/[0.03] text-slate-400 hover:border-cyan-400/30 hover:text-cyan-300"}`}
+            aria-pressed={!videoAtivo && imagemAtiva === index}
+            onClick={() => { setImagemAtiva(index); setVideoAtivo(false); }}
+            className={`rounded-lg border px-4 py-2 text-xs font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 ${!videoAtivo && imagemAtiva === index ? "border-cyan-400/40 bg-cyan-400/10 text-cyan-300" : "border-white/10 bg-white/[0.03] text-slate-400 hover:border-cyan-400/30 hover:text-cyan-300"}`}
           >
             {tela.nome}
           </button>
         ))}
+        {video && <button type="button" aria-pressed={videoAtivo} onClick={() => setVideoAtivo(true)} className={`rounded-lg border px-4 py-2 text-xs font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 ${videoAtivo ? "border-cyan-400/40 bg-cyan-400/10 text-cyan-300" : "border-cyan-400/25 bg-cyan-400/5 text-cyan-300 hover:bg-cyan-400/10"}`}>Vídeo · 28 s</button>}
       </div>
     )}
+    {videoAtivo && video && <p className="mt-3 text-xs leading-6 text-slate-400">Apresentação com capturas reais do projeto. Dados fictícios e envios simulados. <a href={video} download className="text-cyan-300 underline underline-offset-4">Baixar vídeo</a></p>}
   </div>
 )}
 
